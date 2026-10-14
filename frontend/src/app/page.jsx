@@ -1,69 +1,60 @@
-import Image from "next/image";
 import styles from "./page.module.css";
+
+const products = [
+  {
+    name: "Air Max 95",
+    brand: "Nike",
+    colorway: "Neon",
+    price: "R$ 1.299",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80",
+  },
+  {
+    name: "Gel-NYC",
+    brand: "ASICS",
+    colorway: "Cream / Oyster",
+    price: "R$ 1.099",
+    image: "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=700&q=80",
+  },
+  {
+    name: "9060",
+    brand: "New Balance",
+    colorway: "Sea Salt",
+    price: "R$ 1.199",
+    image: "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=700&q=80",
+  },
+];
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.js</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or check out the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className={styles.page}>
+      <header className={styles.header}>
+        <a className={styles.logo} href="#">FRED <span>SNEAKERS</span></a>
+        <nav><a href="#produtos">Produtos</a></nav>
+      </header>
+
+      <section className={styles.intro} id="produtos">
+        <p className={styles.eyebrow}>FRED SNEAKERS</p>
+        <h1>Nosso catálogo</h1>
+        <p className={styles.description}>Conheça alguns modelos que fazem parte da nossa seleção.</p>
+      </section>
+
+      <section className={styles.products} aria-label="Produtos">
+        {products.map((product) => (
+          <article className={styles.card} key={product.name}>
+            <div className={styles.image}>
+              <img src={product.image} alt={`${product.brand} ${product.name}`} />
+            </div>
+            <div className={styles.details}>
+              <p className={styles.brand}>{product.brand}</p>
+              <h2>{product.name}</h2>
+              <p className={styles.colorway}>{product.colorway}</p>
+              <p className={styles.price}>{product.price}</p>
+            </div>
+          </article>
+        ))}
+      </section>
+
+      <footer className={styles.footer}>FRED SNEAKERS · CATÁLOGO</footer>
+    </main>
   );
 }
