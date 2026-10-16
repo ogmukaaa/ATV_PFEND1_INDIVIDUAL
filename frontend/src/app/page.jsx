@@ -26,35 +26,6 @@ const products = [
 
 export default function Home() {
   return (
-    <main className={styles.page}>
-      <header className={styles.header}>
-        <a className={styles.logo} href="#">FRED <span>SNEAKERS</span></a>
-        <nav><a href="#produtos">Produtos</a></nav>
-      </header>
-
-      <section className={styles.intro} id="produtos">
-        <p className={styles.eyebrow}>FRED SNEAKERS</p>
-        <h1>Nosso catálogo</h1>
-        <p className={styles.description}>Conheça alguns modelos que fazem parte da nossa seleção.</p>
-      </section>
-
-      <section className={styles.products} aria-label="Produtos">
-        {products.map((product) => (
-          <article className={styles.card} key={product.name}>
-            <div className={styles.image}>
-              <img src={product.image} alt={`${product.brand} ${product.name}`} />
-            </div>
-            <div className={styles.details}>
-              <p className={styles.brand}>{product.brand}</p>
-              <h2>{product.name}</h2>
-              <p className={styles.colorway}>{product.colorway}</p>
-              <p className={styles.price}>{product.price}</p>
-            </div>
-          </article>
-        ))}
-      </section>
-
-      <footer className={styles.footer}>FRED SNEAKERS · CATÁLOGO</footer>
-    </main>
+    
   );
 }
